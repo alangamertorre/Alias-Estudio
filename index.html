@@ -1,55 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
+    <title>Alias Estudio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.png">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
     <script src="script.js" defer></script>
-    <script src="descargas.js" defer></script>
 </head>
-
 <body>
+
     <!-- Barra fija -->
     <div class="barra">
         <div class="lado-izquierdo">
             <img src="favicon.png" class="logo-barra" alt="Logo de Alias Estudio">
             <h1 class="txt-barra">Alias Estudio</h1>
         </div>
+
         <div class="caja-txt">
-            <a href="../index.html" class="txt-inicio" id="t">Inicio</a>
-            <a href="index.html" class="txt-productos" id="t">Productos</a>
+            <a href="index.html" class="txt-inicio" id="t">Inicio</a>
+            <a href="Productos/index.html" class="txt-productos" id="t">Productos</a>
             <a class="txt-soporte" id="t">Soporte</a>
             <a class="txt-acerca" id="t">Acerca de nosotros</a>
             <a class="txt-noticias" id="t">Noticias</a>
         </div>
     </div>
-    <!-- Zona de productos y texto -->
-    <div class="zona-productos">
-        <div class="txt-pro">
-            <h1>Productor y más...</h1>
-            <p style="font-size: x-large; font-weight: bolder;">Aquí encontrarás todas nuestras creaciones.</p>
+
+    <!-- Zona de presentación -->
+    <div class="zona-presentacion">
+        <!-- Palabras flotantes -->
+        <div class="palabras-flotantes1">
+            <div class="palabra">Innovador</div>
+            <div class="palabra">Creativo</div>
+            <div class="palabra">Profesional</div>
         </div>
-        <div class="productos">
-            <!--Alias Studio Code-->
-            <div class="line-shadow"></div>
-            <div class="caja-pro">
-                <img class="img-pro" src="../Multimedia/Icon.png">
-                <h2>Alias Studio Code</h2>
-                <p class="txt-p">Es un editor de código potenciado por Monaco Editor© e inspirado en VS Code© y es
-                    sencillo de
-                    usar.
-                </p>
-                <button class="btn-pro">
-                    <p>Descargar ⬇️</p>
-                </button>
-            </div>
-            <!---->
+        <div class="palabras-flotantes2">
+            <div class="palabra">Preciso</div>
+            <div class="palabra">Experiencia</div>
+            <div class="palabra">Control</div>
+        </div>
+
+        <!-- Video -->
+        <video class="video1" autoplay muted loop>
+            <source src="Multimedia/programing_video.mp4" type="video/mp4" class="v1">
+        </video>
+
+        <!-- Texto sobre el video -->
+        <div class="txt-presentacion">
+            <h1 class="txt-presentacion1">Bienvenido a Alias Estudio</h1>
+            <p class="txt-presentacion2">Tu destino para soluciones tecnológicas innovadoras</p>
         </div>
     </div>
 </body>
-
 </html>
