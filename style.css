@@ -1,170 +1,187 @@
 /* Reset básico */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Variables */
 :root {
-  --color--txt-primario: #000000;
-  --color--txt-secundario: #ffffff;
-  --color--fondo-primario: #000000;
-  --color--fondo-secundario: #ffffff;
-  --fs--txt-primario: 2rem;
-  --fs--txt-secundario: 1.5rem;
-  --fs--txt-terciario: 1rem;
-  --fs--txt-detalles: 0.8rem;
+    --color--txt-primario: #000000;
+    --color--txt-secundario: #ffffff;
+    --color--fondo-primario: #000000;
+    --color--fondo-secundario: #ffffff;
+    --fs--txt-primario: 2rem;
+    --fs--txt-secundario: 1.5rem;
+    --fs--txt-terciario: 1rem;
+    --fs--txt-detalles: 0.8rem;
 }
+
 
 /* Base */
 html,
 body {
-  height: 100%;
-  width: 100%;
-  font-family: "Open Sans", sans-serif;
-  background-color: var(--color--fondo-primario);
+    height: 100%;
+    width: 100%;
+    font-family: "Open Sans", sans-serif;
+    background-color: var(--color--fondo-primario);
 }
 
 /* ==========================
    BARRA PRINCIPAL FIJA
 ========================== */
 .barra {
-  height: 80px;
-  width: 100%;
-  background-color: var(--color--fondo-secundario);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 0 40px;
-  z-index: 1000;
-  user-select: none;
+    height: 80px;
+    width: 100%;
+    background-color: var(--color--fondo-secundario);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 40px;
+    z-index: 1000;
+    user-select: none;
 }
 
 .lado-izquierdo {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    user-select: none;
 }
 
 .logo-barra {
-  width: 70px;
-  height: 70px;
-  user-select: none;
+    width: 70px;
+    height: 70px;
+    user-select: none;
 }
 
 .txt-barra {
-  font-size: var(--fs--txt-secundario);
-  margin: 0;
-  user-select: none;
+    font-size: var(--fs--txt-secundario);
+    margin: 0;
+    user-select: none;
 }
 
 .caja-txt {
-  display: flex;
-  gap: 25px;
-  font-size: var(--fs--txt-terciario);
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--color--txt-primario);
-  transition: opacity 0.2s ease;
+    display: flex;
+    gap: 25px;
+    font-size: var(--fs--txt-terciario);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color--txt-primario);
+    transition: opacity 0.2s ease;
 }
 
 .caja-txt a:hover {
-  transform: scale(1.01);
-  color: #181818;
-  box-shadow: 0 0 10px rgba(233, 230, 230, 0.2);
+    transform: scale(1.01);
+    color: #181818;
+    box-shadow: 0 0 10px rgba(233, 230, 230, 0.2);
 }
 
-/* ==========================
-   ZONA DE PRESENTACIÓN
-========================== */
-.zona-presentacion {
-  height: 100vh; /* toda la ventana menos la barra */
-  width: 100%;
-  background-color: var(--color--fondo-primario);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative; /* clave para posicionar absolutamente elementos hijos */
-  overflow: hidden;
-  padding-top: 80px;
+#t {
+    color: var(--color--txt-primario);
+    text-decoration: none;
 }
 
-/* Video */
-.video1 {
-  position: absolute;
-  top: 80px;
-  left: 0px;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 1;
+/* ZONA DE PRODUCTOS */
+.zona-productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 80px 20px 20px 20px;
+    justify-content: center;
+    color: var(--color--txt-secundario);
+    text-align: center;
 }
 
-/* Texto sobre el video */
-.txt-presentacion {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--color--txt-secundario);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-weight: bold;
-  z-index: 3;
+.txt-pro {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 10px;
 }
 
-/* ==========================
-   PALABRAS FLOTANTES
-========================== */
-.palabras-flotantes1 {
-  position: absolute;
-  top: calc(50% - 100px); /* centra verticalmente */
-  left: 0;
-  transform: translateY(-50%);
-  width: 215px;
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 2;
-  background-color: transparent;
-  cursor: default;
-
-  user-select: none;
+/*productos*/
+.productos {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border: 2px solid var(--color--fondo-secundario);
+    height: auto;
+    opacity: 0;
+    width: 90%;
 }
 
-.palabras-flotantes2 {
-  position: absolute;
-  top: 50%; /* centrado vertical real */
-  right: 0;
-  transform: translateY(-50%);
-
-  width: 215px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 100px; /* separación entre palabras */
-  align-items: center;
-
-  z-index: 2;
-  background-color: transparent;
-  cursor: default;
-  user-select: none;
+.caja-pro {
+    color: var(--color--txt-primario);
+    background-color: var(--color--fondo-secundario);
+    border-radius: 8px;
+    margin: 8px;
+    height: 240px;
+    width: 240px;
+    opacity: 0;
+    z-index: 0;
 }
 
-.palabra {
-  font-size: var(--fs--txt-secundario);
-  color: var(--color--txt-secundario);
-  font-weight: bold;
-  user-select: none;
-  cursor: default;
+.caja-pro:hover {
+    transform: scale(1.1);
+}
+
+.line-shadow {
+    margin: 8px;
+    opacity: 0;
+    height: 5px;
+    width: 240px;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.img-pro {
+    height: 40px;
+    width: 40px;
+    margin: 4px;
+    user-select: none;
+}
+
+.txt-p {
+    margin: 6px;
+    font-size: var(--fs--txt-terciario);
+}
+
+.btn-pro {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    background:
+        linear-gradient(white, white) padding-box,
+        linear-gradient(135deg, rgba(3, 21, 63, 1), rgba(48, 108, 169, 1), rgba(3, 21, 63, 1)) border-box;
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease-in-out infinite;
+    cursor: pointer;
+    position: relative;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    transition: transform 300ms cubic-bezier(1, 0.295, 0, 0.98);
+}
+
+.btn-pro:hover {
+    transform: scale(1.05);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
