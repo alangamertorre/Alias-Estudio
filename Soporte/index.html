@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
+
+
+    <script src="script.js" defer></script>
+    <script>emailjs.init("-kU0XrqnyASmpVPwR");</script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+    <!-- IA GEMINI -->
+    <script src="IA/ia-src.js"></script>
+</head>
+
+<body>
+
+    <!-- Barra fija -->
+    <div class="barra">
+        <div class="lado-izquierdo">
+            <img src="favicon.png" class="logo-barra" alt="Logo de Alias Estudio">
+            <h1 class="txt-barra">Alias Estudio</h1>
+        </div>
+
+        <div class="caja-txt">
+            <a href="../index.html" class="txt-inicio" id="t">Inicio</a>
+            <a href="../Productos/index.html" class="txt-productos" id="t">Productos</a>
+            <a href="index.html" class="txt-soporte" id="t">Soporte</a>
+            <a href="../Acerca/index.html" class="txt-acerca" id="t">Acerca de nosotros</a>
+            <a href="../Noticias/index.html" class="txt-noticias" id="t">Noticias</a>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="contenido-principal">
+        <div class="soporte-header">
+            <div class="txt-con-pri">
+                <h1>Soporte técnico</h1>
+                <h2>¿Necesitas ayuda? Aqui te ayudamos.</h2>
+            </div>
+            <img src="Soporte.png" alt="Soporte técnico" class="img-soporte">
+        </div>
+
+        <div class="zona-options">
+            <div class="help-ia">
+                <h3>Asistencia con IA</h3>
+                <p>Obtén ayuda instantánea con nuestra inteligencia artificial.</p>
+            </div>
+            <div class="help-manual">
+                <h3>Asistencia manual</h3>
+                <p>Obtén ayuda de nuestro manual de soporte técnico.</p>
+            </div>
+            <div class="help-gmail">
+                <h3>Soporte por correo</h3>
+                <p>Envíanos un correo electrónico y te responderemos lo antes posible.</p>
+            </div>
+        </div>
+
+        <div class="optn-gmail">
+            <h2>Contáctanos...</h2>
+            <input type="text" id="nombre" placeholder="Tu nombre" class="input-contacto">
+            <input type="email" id="email" placeholder="Tu correo electrónico" class="input-contacto">
+            <textarea id="mensaje" placeholder="Tu mensaje" class="input-contacto"></textarea>
+            <button class="btn-enviar" onclick="sendEmail()">Enviar</button>
+        </div>
+
+        <div class="optn-ia">
+            <div class="ia-header">
+                <button class="btn-cerrar-ia" onclick="cerrarIA()">✕</button>
+                <h2>Asistencia con IA</h2>
+            </div>
+            <div style="width: 100%; height: 1px; background-color: #000000; margin-top: 8px; margin-bottom: 16px;">
+            </div>
+            <div class="ia-mensajes" id="ia-mensajes"></div>
+            <div class="ia-input">
+                <input type="text" id="ia-input" placeholder="Escribe tu pregunta...">
+                <button onclick="enviarMensajeIA()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

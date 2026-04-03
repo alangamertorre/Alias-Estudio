@@ -1,0 +1,332 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+    --color--txt-primario: #000000;
+    --color--txt-secundario: #ffffff;
+    --color--fondo-primario: #000000;
+    --color--fondo-secundario: #ffffff;
+    --fs--txt-primario: 2rem;
+    --fs--txt-secundario: 1.5rem;
+    --fs--txt-terciario: 1rem;
+    --fs--txt-detalles: 0.8rem;
+}
+
+/* Base */
+html,
+body {
+    height: 100%;
+    width: 100%;
+    position: static;
+    font-family: "Open Sans", sans-serif;
+    background-color: var(--color--fondo-primario);
+}
+
+
+/*Scroll-bar*/
+/* Ancho de la barra */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Fondo de la pista */
+::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 2;
+}
+
+/* El "pulgar" (la parte que arrastras) */
+::-webkit-scrollbar-thumb {
+    background: #9b9b9ba9;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8b8b8b9a;
+}
+
+/* ==========================
+   BARRA PRINCIPAL FIJA
+========================== */
+.barra {
+    height: 80px;
+    width: 100%;
+    background-color: var(--color--fondo-secundario);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 0 40px;
+    z-index: 1000;
+    user-select: none;
+}
+
+.lado-izquierdo {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    user-select: none;
+}
+
+.logo-barra {
+    width: 70px;
+    height: 70px;
+    user-select: none;
+}
+
+.txt-barra {
+    font-size: var(--fs--txt-secundario);
+    margin: 0;
+    user-select: none;
+}
+
+.caja-txt {
+    display: flex;
+    gap: 25px;
+    font-size: var(--fs--txt-terciario);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color--txt-primario);
+    transition: opacity 0.2s ease;
+}
+
+.caja-txt a:hover {
+    transform: scale(1.01);
+    color: #181818;
+    box-shadow: 0 0 10px rgba(233, 230, 230, 0.2);
+}
+
+#t {
+    color: var(--color--txt-primario);
+    text-decoration: none;
+}
+
+/* ==========================
+   CONTENIDO PRINCIPAL
+========================== */
+.soporte-header {
+    display: flex;
+    padding: 20px 40px;
+    margin-top: 100px;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color--txt-secundario);
+}
+
+.txt-con-pri {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.img-soporte {
+    width: 170px;
+    user-select: none;
+    height: 170px;
+    border-radius: 8px;
+    opacity: 0;
+    filter: brightness(0) invert(1);
+    /* Elimina margin-top: 85px y margin-left: 35% */
+}
+
+
+.zona-options {
+    display: flex;
+    user-select: none;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 24px;
+    margin-top: 64px;
+    flex-direction: column;
+}
+
+.help-ia,
+.help-manual,
+.help-gmail {
+    width: 100%;
+    gap: 4px;
+    margin-bottom: 24px;
+    height: 200px;
+    background-color: var(--color--fondo-secundario);
+    border-radius: 8px;
+    border: 1px solid #000000;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--color--txt-primario);
+    font-size: var(--fs--txt-secundario);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform;
+}
+
+.help-ia:hover,
+.help-manual:hover,
+.help-gmail:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.optn-gmail,
+.optn-ia {
+    opacity: 0;
+    pointer-events: none;
+    /* ✅ en vez de display:none para que anime funcione */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background-color: var(--color--fondo-secundario);
+    border-radius: 8px;
+    min-height: 300px;
+    max-height: 90%;
+    min-width: 500px;
+    max-width: 90%;
+    border: 1px solid #000000;
+    color: var(--color--txt-primario);
+    font-size: var(--fs--txt-secundario);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    display: flex;
+    /* ✅ solo uno, al final */
+}
+
+/* GMAIL */
+.btn-enviar {
+    padding: 10px 20px;
+    background-color: var(--color--fondo-primario);
+    color: rgb(36, 85, 134);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: var(--fs--txt-terciario);
+    font-weight: bolder;
+    transition: background-color 0.2s ease;
+}
+
+.btn-enviar:hover {
+    background-color: rgb(36, 85, 134);
+    color: var(--color--fondo-primario);
+}
+
+.input-contacto {
+    height: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: var(--fs--txt-terciario);
+}
+
+/* IA */
+.optn-ia {
+    padding: 10px;
+    border-radius: 4px;
+    font-size: var(--fs--txt-terciario);
+    overflow-y: auto;
+    max-height: 70%;
+    flex-direction: column;
+}
+
+.ia-header {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+}
+
+.ia-header h2 {
+    font-size: var(--fs--txt-secundario);
+    font-weight: bold;
+}
+
+.btn-cerrar-ia {
+    padding: 6px 12px;
+    user-select: none;
+    background-color: var(--color--fondo-primario);
+    color: rgb(36, 85, 134);
+    border: none;
+    font-size: calc(var(--fs--txt-primario) + 1rem);
+    font-weight: bolder;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: var(--fs--txt-detalles);
+    transition: background-color 0.2s ease;
+}
+
+.btn-cerrar-ia:hover {
+    background-color: rgb(36, 85, 134);
+    color: var(--color--fondo-primario);
+}
+
+.ia-mensajes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 4px;
+    text-align: left;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+
+.msg-ia,
+.msg-usuario {
+    padding: 10px;
+    opacity: 0;
+    border-radius: 4px;
+    border: 1px solid #000000;
+    width: min-content;
+    max-width: 80%;
+    font-size: var(--fs--txt-terciario);
+    background-color: #acacac;
+}
+
+
+.ia-input {
+    display: flex;
+    gap: 8px;
+    margin: 4px;
+}
+
+.ia-input input {
+    flex: 1;
+    padding: 10px;
+    max-width: 85vw;
+    border: 1px solid rgb(36, 85, 134);
+    border-radius: 4px;
+    font-size: var(--fs--txt-terciario);
+    color: var(--color--txt-primario);
+    cursor: text;
+}
+
+.ia-input button {
+    padding: 10px 20px;
+    background-color: var(--color--fondo-primario);
+    color: rgb(36, 85, 134);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: var(--fs--txt-terciario);
+    font-weight: bolder;
+    transition: background-color 0.2s ease;
+}
+
+.ia-input button:hover {
+    background-color: rgb(36, 85, 134);
+    color: var(--color--fondo-primario);
+}
