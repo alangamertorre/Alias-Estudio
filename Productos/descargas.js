@@ -5,7 +5,7 @@ const btn = document.querySelector(".btn-pro");
 function descargar(href, download) {
   const link = document.createElement("a");
 
-  // Ruta del archivo .exe (tiene que existir en tu servidor)
+  // Ruta del archivo .msi (tiene que existir en tu servidor)
   link.href = href;
 
   // Nombre con el que se descargará
@@ -21,7 +21,7 @@ btn.forEach((b, index) => {
     console.log(CLAVES_BTN[index]);
 
     if (CLAVES_BTN[index] === "Alias Studio Code") {
-      descargar("ruta (ZIP/), (.exe dentro de .ZIP)", "nombre"); // 👈 dos argumentos separados
+      descargar("ruta (ZIP/), (.msi)", "nombre"); // 👈 dos argumentos separados
     }
   });
 });
