@@ -1,5 +1,5 @@
 /* Lógica de descarga e identificación de SO */
-const db = window.supabase.createClient(
+window.db = window.supabase.createClient(
   "https://osfygcukvzrqofllnbzf.supabase.co",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
 );
