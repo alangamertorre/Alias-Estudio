@@ -102,28 +102,33 @@ if (botones && botones.length > 0) {
     "No se encontraron botones con la clase .btn-pro para activar descargas.",
   );
 }
-let owner = false;
-const pr_data =
-  owner === true
-    ? prompt("¿Quieres ver el núm. de descargas de cada producto? (si/no)")
-    : console.log(`Owner isn't here!`);
 
-if (pr_data === "si") {
-  async function obtenerDescargas(id) {
-    let { data } = await db
-      .from("descargas")
-      .select("total")
-      .eq("id", id)
-      .single();
+async function owner() {
+  let owner = false;
+  const pr_data =
+    owner === true
+      ? prompt("¿Quieres ver el núm. de descargas de cada producto? (si/no)")
+      : console.log(`Owner isn't here!`);
 
-    return data?.total || 0;
+  if (pr_data === "si") {
+    async function obtenerDescargas(id) {
+      let { data } = await db
+        .from("descargas")
+        .select("total")
+        .eq("id", id)
+        .single();
+
+      return data?.total || 0;
+    }
+    (async () => {
+      const data = await obtenerDescargas("proyecto1");
+      console.log(data);
+    })();
+  } else if (pr_data === "no") {
+    console.log("Vale.");
+  } else {
+    console.warn("¡Respuesta no aceptada! Vuelve a intentarlo más tarde.");
+    owner();
   }
-  (async () => {
-    const data = await obtenerDescargas("proyecto1");
-    console.log(data);
-  })();
-} else if (pr_data === "no") {
-  console.log("Vale.");
-} else {
-  console.warn("¡Respuesta no aceptada! Vuelve a intentarlo más tarde.");
 }
+owner();
