@@ -1,24 +1,22 @@
 /* Lógica de descarga e identificación de SO */
-const supabase = window.supabase.createClient(
+const db = window.supabase.createClient(
   "https://osfygcukvzrqofllnbzf.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zZnlnY3VrdnpycW9mbGxuYnpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyOTE2MDQsImV4cCI6MjA5Mjg2NzYwNH0.UHFHtLHLZQTO7uiswSckPCcVR4ldiVQ5eVa8qmLBcSo",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
 );
+
 async function sumarDescarga(id) {
-  // coger valor actual
-  let { data } = await supabase
+  let { data } = await db // ← db en lugar de supabase
     .from("descargas")
     .select("total")
     .eq("id", id)
     .single();
 
-  // si no existe lo crea
   if (!data) {
-    await supabase.from("descargas").insert({ id, total: 1 });
+    await db.from("descargas").insert({ id, total: 1 });
     return;
   }
 
-  // actualizar
-  await supabase
+  await db
     .from("descargas")
     .update({ total: data.total + 1 })
     .eq("id", id);
