@@ -72,6 +72,13 @@ if (botones && botones.length > 0) {
       }
 
       descargar(file.href, file.name);
+
+      // 🔥 SUMAR DESCARGA
+      fetch("https://alias-estudio-backend-code.onrender.com/descargar/test", {
+        method: "POST",
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
     });
   });
 } else {
