@@ -110,7 +110,7 @@ const pr_data =
 
 if (pr_data === "si") {
   async function obtenerDescargas(id) {
-    let { data } = await supabase
+    let { data } = await db
       .from("descargas")
       .select("total")
       .eq("id", id)
