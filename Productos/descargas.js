@@ -1,7 +1,7 @@
 /* Lógica de descarga e identificación de SO */
 window.db = window.supabase.createClient(
   "https://osfygcukvzrqofllnbzf.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zZnlnY3VrdnpycW9mbGxuYnpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyOTE2MDQsImV4cCI6MjA5Mjg2NzYwNH0.UHFHtLHLZQTO7uiswSckPCcVR4ldiVQ5eVa8qmLBcSo",
 );
 
 async function sumarDescarga(id) {
