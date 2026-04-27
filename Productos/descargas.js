@@ -5,20 +5,20 @@ window.db = window.supabase.createClient(
 );
 
 async function sumarDescarga(id) {
-  let { data } = await db // ← db en lugar de supabase
+  let { data } = await window.db // ← db en lugar de supabase
     .from("descargas")
     .select("total")
     .eq("id", id)
     .single();
 
-  await db.rpc("incrementar_descarga", { p_id: id });
+  await window.db.rpc("incrementar_descarga", { p_id: id });
 
   if (!data) {
-    await db.from("descargas").insert({ id, total: 1 });
+    await window.db.from("descargas").insert({ id, total: 1 });
     return;
   }
 
-  await db
+  await window.db
     .from("descargas")
     .update({ total: data.total + 1 })
     .eq("id", id);
@@ -114,7 +114,7 @@ async function owner(o = false) {
 
   if (pr_data === "si") {
     async function obtenerDescargas(id) {
-      let { data } = await db
+      let { data } = await window.db
         .from("descargas")
         .select("total")
         .eq("id", id)
