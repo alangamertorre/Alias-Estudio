@@ -10,7 +10,7 @@ async function sumarDescarga(id) {
     .select("total")
     .eq("id", id)
     .single();
-
+  await db.rpc("incrementar_descarga", { p_id: id });
   if (!data) {
     await db.from("descargas").insert({ id, total: 1 });
     return;
