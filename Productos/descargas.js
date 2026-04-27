@@ -130,7 +130,6 @@ async function owner(o = false) {
     console.log("Vale.");
   } else {
     console.warn("¡Respuesta no aceptada! Vuelve a intentarlo más tarde.");
-    owner();
   }
 }
 owner();
