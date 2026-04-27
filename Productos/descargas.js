@@ -1,4 +1,28 @@
 /* Lógica de descarga e identificación de SO */
+const supabase = window.supabase.createClient(
+  "https://osfygcukvzrqofllnbzf.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zZnlnY3VrdnpycW9mbGxuYnpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyOTE2MDQsImV4cCI6MjA5Mjg2NzYwNH0.UHFHtLHLZQTO7uiswSckPCcVR4ldiVQ5eVa8qmLBcSo",
+);
+async function sumarDescarga(id) {
+  // coger valor actual
+  let { data } = await supabase
+    .from("descargas")
+    .select("total")
+    .eq("id", id)
+    .single();
+
+  // si no existe lo crea
+  if (!data) {
+    await supabase.from("descargas").insert({ id, total: 1 });
+    return;
+  }
+
+  // actualizar
+  await supabase
+    .from("descargas")
+    .update({ total: data.total + 1 })
+    .eq("id", id);
+}
 
 const botones = document.querySelectorAll(".btn-pro");
 
@@ -57,7 +81,7 @@ function fileForProductAndOS(productKey, osKey) {
 
 if (botones && botones.length > 0) {
   botones.forEach((b) => {
-    b.addEventListener("click", (ev) => {
+    b.addEventListener("click", async (ev) => {
       const productKey = b.dataset.product || "alias-studio";
       const osKey = detectOS();
       const file = fileForProductAndOS(productKey, osKey);
@@ -72,20 +96,36 @@ if (botones && botones.length > 0) {
       }
 
       descargar(file.href, file.name);
-
-      // 🔥 SUMAR DESCARGA
-      fetch(
-        "https://alias-estudio-backend-code.onrender.com/descargar/proyecto1",
-        {
-          method: "POST",
-        },
-      ).catch((err) => {
-        console.log(err);
-      });
+      await sumarDescarga("proyecto1");
     });
   });
 } else {
   console.warn(
     "No se encontraron botones con la clase .btn-pro para activar descargas.",
   );
+}
+let owner = false;
+const pr_data =
+  owner === true
+    ? prompt("¿Quieres ver el núm. de descargas de cada producto? (si/no)")
+    : console.log(`Owner isn't here!`);
+
+if (pr_data === "si") {
+  async function obtenerDescargas(id) {
+    let { data } = await supabase
+      .from("descargas")
+      .select("total")
+      .eq("id", id)
+      .single();
+
+    return data?.total || 0;
+  }
+  (async () => {
+    const data = await obtenerDescargas("proyecto1");
+    console.log(data);
+  })();
+} else if (pr_data === "no") {
+  console.log("Vale.");
+} else {
+  console.warn("¡Respuesta no aceptada! Vuelve a intentarlo más tarde.");
 }
