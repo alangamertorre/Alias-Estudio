@@ -10,7 +10,9 @@ async function sumarDescarga(id) {
     .select("total")
     .eq("id", id)
     .single();
+
   await db.rpc("incrementar_descarga", { p_id: id });
+
   if (!data) {
     await db.from("descargas").insert({ id, total: 1 });
     return;
@@ -103,8 +105,8 @@ if (botones && botones.length > 0) {
   );
 }
 
-async function owner() {
-  let owner = false;
+async function owner(o = false) {
+  let owner = o;
   const pr_data =
     owner === true
       ? prompt("¿Quieres ver el núm. de descargas de cada producto? (si/no)")
