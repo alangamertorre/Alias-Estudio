@@ -51,17 +51,17 @@ function fileForProductAndOS(productKey, osKey) {
     switch (osKey) {
       case "Windows":
         return {
-          href: "ZIP/Alias-Studio-Code-Windows_x64.msi",
-          name: "Alias-Studio-Code-Windows_x64.msi",
+          href: "ZIP/Alias-Studio-Code-Windows_x64.exe",
+          name: "Alias-Studio-Code-Windows_x64.exe",
         };
       case "Linux":
         return {
-          href: "ZIP/Alias-Studio-Code-Linux_x64.deb",
-          name: "Alias-Studio-Code-Linux_x64.deb",
+          href: "ZIP/Alias-Studio-Code-Linux_x64.zip",
+          name: "Alias-Studio-Code-Linux_x64.zip",
         };
       case "MacOS":
         return {
-          href: "ZIP/Alias-Studio-Code-MacOS_x64.dmg",
+          href: "ZIP/Alias-Studio-Code-MacOS_x64.zip",
           name: "Alias-Studio-Code-MacOS_x64.zip",
         };
       default:
@@ -87,9 +87,6 @@ if (botones && botones.length > 0) {
       const file = fileForProductAndOS(productKey, osKey);
 
       if (osKey === "Unknown") {
-        alert(
-          "Sistema operativo no reconocido. Se descargará el paquete genérico .zip.",
-        );
         alert(
           "La app no es compatible con Android ni iOS. Disculpen las molestias.",
         );
