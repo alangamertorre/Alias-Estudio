@@ -6,11 +6,11 @@ function getFileForOS(operativeSystem) {
   let file = "";
 
   if (operativeSystem === "Windows") {
-    file = "ZIP/Alias-Studio-Code-Windows_x64.exe";
+    file = "ZIP/Alias Studio Code-Windows_x64.exe";
   } else if (operativeSystem === "Linux") {
-    file = "ZIP/Alias-Studio-Code-Linux_x64.zip";
+    file = "ZIP/Alias Studio-Code-Linux_x64.zip";
   } else if (operativeSystem === "MacOS") {
-    file = "ZIP/Alias-Studio-Code-MacOS_x64.zip";
+    file = "ZIP/Alias Studio Code-MacOS_x64.zip";
   } else {
     alert(
       "Sistema operativo no reconocido o no compatible.",
