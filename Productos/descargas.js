@@ -51,31 +51,31 @@ function fileForProductAndOS(productKey, osKey) {
     switch (osKey) {
       case "Windows":
         return {
-          href: "ZIP/Alias-Studio-Code-Windows_x64.exe",
-          name: "Alias-Studio-Code-Windows_x64.exe",
+          href: "ZIP/Alias Studio Code-Windows_x64.exe",
+          name: "Alias Studio Code-Windows_x64.exe",
         };
       case "Linux":
         return {
-          href: "ZIP/Alias-Studio-Code-Linux_x64.zip",
-          name: "Alias-Studio-Code-Linux_x64.zip",
+          href: "ZIP/Alias Studio Code-Linux_x64.zip",
+          name: "Alias Studio Code-Linux_x64.zip",
         };
       case "MacOS":
         return {
-          href: "ZIP/Alias-Studio-Code-MacOS_x64.zip",
-          name: "Alias-Studio-Code-MacOS_x64.zip",
+          href: "ZIP/Alias Studio Code-MacOS_x64.zip",
+          name: "Alias Studio Code-MacOS_x64.zip",
         };
       default:
         return {
-          href: "ZIP/Alias-Studio-Code-UnknownOS_x64.zip",
-          name: "Alias-Studio-Code-UnknownOS_x64.zip",
+          href: "ZIP/",
+          name: "",
         };
     }
   }
 
   // Producto desconocido: devolver zip genérico
   return {
-    href: "ZIP/Alias-Studio-Code-UnknownOS_x64.zip",
-    name: "Alias-Studio-Code-UnknownOS_x64.zip",
+    href: "ZIP/",
+    name: "",
   };
 }
 
