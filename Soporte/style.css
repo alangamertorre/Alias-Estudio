@@ -302,7 +302,7 @@ body {
     opacity: 0;
     border-radius: 4px;
     border: 1px solid #000000;
-    width: min-content;
+    min-width: auto;
     max-width: 80%;
     font-size: var(--fs--txt-terciario);
     background-color: #acacac;
